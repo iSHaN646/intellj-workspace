@@ -1,0 +1,360 @@
+q1->what do you mean by unicode in java?
+
+ans1->
+an international encoding standard for use with different languages and scripts, 
+by which each letter, digit, or symbol is assigned a unique numeric value that applies
+ across different platforms and programs.
+
+q2->why char primitive data types take 2 bytes in java?
+
+ans2->
+in java , char follows unicode encoding scheme which supports 60+ languages due to 
+which it ranges from 0 to 65535 which cannot be stored on 1 byte whereas in c/c++
+ascii scheme is followed supporting only english language ranges from 0 to 255 which 
+can be stored in 1 byte.
+
+q3->what are the data types in java?
+ans3-> we have two categories in java->
+
+1. Primitive datatype-> As primitive datatype we have already read in c language
+(int,float,char,byte) but string datatype is not available in c, to hold any string 
+in c language we have to create char array which is difficult approach while 
+using string in c language because array data structure we have to define while
+holding any string but in java String class introduced in java.
+
+2. Non-Primitive datatype-> String is a non-primitive datatype introduced in java
+which hold directly string. String class hold directly string we dont need to 
+create char array. Whenever i am creating the string class object, the obj of 
+string stored inside the string constant pool.
+
+q4-> How to create a string object?
+ans4-> String a = "Real";   ->  string constant pool
+String a =  new String("abc");   -> heap
+
+First approach: is the best methology to create string object
+
+Note: 1. We have wrapper classes in java which is used for conversion, specific datatype 
+value to another datatype.
+
+2. but if we try to convert string "abc" to integer type we get NumberFormatException
+whereas converting string "101" to integer is perfectly fine.
+
+3. if we do not write main method in our program , it will compile fine bcoz there 
+is no syntax error and no memory allocation takes place at compile time
+but when we run our program jvm will get activated which will first search for
+main method in our program,it will throw error ->
+
+Error: Main method not found in class Test, please define the main method as:
+   public static void main(String[] args)
+or a JavaFX application class must extend javafx.application.Application
+
+Note: THIS keyword
+
+this keyword represent current object of class.
+CASE1: suppose i have two objects of same class, i have to check
+which current thread is activated in my program we can analyze 
+with this keyword.
+
+q5-> what is diff bw equality operator(==) and equals method?
+
+ans5-> Equality operator:
+1. if we are using equality operator with the integer variables,
+it will check values of variables.
+2. if we are using equality operator to check the objects in that 
+case it will check address of objects.
+
+eg->
+Test t=new Test();
+Test t1=new Test();
+
+if(t==t1){
+	System.out.println("hi");
+}else{
+	System.out.println("bie");  //ans
+}
+
+Equals Method:
+equals method always check the content of two strings
+
+Both equals method and equality operator are used to compare two
+objects in java. equality operator is an operator and equals is a
+method defined in String class but equality operator compares 
+reference of memory location of objects inside heap area,whether 
+they point to same location or not.
+In general both equals and equality operator in java are used to 
+compare objects to check equality but there are some of differences
+bw the two->
+1. The main diff bw the equals method and equality operator is 
+that one is method and second one is operator.
+2. We can use equality operator for references comparision
+(addresses comparision) and .equals method for content comparision
+In simple words, equality operator check if both objects point to
+same memory allocation whereas equals method check comparision of
+values inside the object.
+
+Q5-> Diff bw reference variable and variable?
+ans5->
+int b=10; where b is a variable which holds value
+Test t= new Test(); where t is a reference variable which holds objects
+
+Variable can hold only values, we can define variable in c language 
+where object concept is not available.
+But reference variable are those variable which hold the object
+
+Note: 1. exit(Integer) used to shutdown the jvm, so all the code after
+the exit statement will not execute. 
+
+2. If there is no constructor in class, but you are calling constructor
+using new keyword ,then compiler will automatically insert the
+default constructor.
+
+Imp:Note: 1. if we want to restrict any class from being creating objects
+using new keyword, make the constructor of that class private.
+eg: System class have private constructor, you cannot create its
+object.
+
+Private Constructor:
+
+if i am creating any private constructor inside the class or making 
+any constructor as private, we cannot create object of that class
+outside the class.
+
+Method overloading:
+
+same method name having diff parameters, we can achieve method 
+overloading concept
+
+void println(int a){};
+void println(Long a){};
+
+In java, two or more methods may have the same name, if they differ
+in parameters(diff no. of parameters or diff types of parameters or both)
+These method are called overload methods and this feature is called
+method overloading.
+
+Q6: Why method overloading?
+ans6:
+
+Suppose you have to perform the addition method on given no.,but
+there can be any no. of arguments(Lets say either 2 or 3 arguments)
+In order to complete the task, you can create two method .
+int sum2(int a,int b);
+int sum3(int a,int b,int c);
+
+However other programmers as well as you in the future may get confused
+as the behaviour of both methods are same but differ by name.
+The better way to complish this task is by overloading method and
+depending upon the argument passed, one of the overloaded method
+is called, this helps to increase the readability of program.
+
+Polymorphism:
+Polymorphism divided into 2 phases:
+1. Overloading(Compile time Polymorphism)   2. Overriding(runtime polymorphism)
+
+Overloading:
+Overloading is known as compile time polymorphism checking methods parameters
+at time of compilation makes overloading concept as compile time polymorphism.
+
+eg: Compile time error
+void fun(int a){}
+void fun(int a){}
+psvm{
+       fun(10,10.5f);     // checking parameters at compile time
+}
+
+System class:
+
+System class having private constructor we cannot create the object of
+system class but we have permission to create the reference variable
+of system class
+
+
+Note: Not creating the object of System as private constructor
+but creating the reference of System class
+ System sc=null;   // Reference variable
+ sc.out.println("hello"); // Working
+
+ Note: Static:
+ Context of the class : is the memory name where all the static var,methods,
+ blocks will be allocated at the compile time.
+
+ Defining
+ public static void main(String args[]){}
+
+ q7->Why main method define static in java programming?
+ ans7->
+ We know non-static methods will be called after object creation, if java
+ people defined main method as non-static programmer having the responsibility
+ to create the object of that class where main method is defined, but
+ static concept is a part of compile time memory allocation and we can
+ call static data members and method through className here at the runtime
+ classLoader having the responsibility to load the .class, main method will
+ be called through class name because main method is static.
+
+Refer to NstaticInSt:
+Note: We cannot use non-static reference variable in static methods.
+
+
+wap to concatenate two strings string values will be given through command line
+argument?
+
+wap getting values from the command line argument , you have to check
+both the strings are equal or not?
+
+IMP:note:
+Refer to PracticeTest and PracticeTestMain:
+As PracticeTest have private constructor,we cannot create object in main class
+but we are creating static function in PracticeTest class which will return
+the object of class(this concept is called factory design method).
+
+Factory method(Factory design pattern) or static methods:
+Mainly static methods are factory methods which returns object of class, in
+real world terminology IT professionals follow the design pattern in their
+projects known as factory design pattern.Factory design pattern is used
+to create the factory and serve the objects to other classes, mainly this
+design pattern is used for database connectivity realtime projects.
+
+Inheritance:
+It is the one of key feature of oop that allows us to create a new class from
+existing class.
+The new class that is created is known as subclass,child or derived class
+and the existing class from where that child class is derived is known as
+super class,parent class,base class.
+The extends keyword is used to perform inheritance in java.
+
+package JavaCodes;
+
+ class inheritance {
+
+    public inheritance() {
+       System.out.println("inheritance class constructor"); //1
+   }
+   void fun() {
+       System.out.println("hello i am in fun()"); //2
+   }
+}
+
+public class child extends inheritance {
+
+    public static void main(String[] args) {
+        child c = new child();
+         c.fun();
+    }
+}
+
+Every non-inheriting class inherits Object class.
+Object class have foll functions:
+1. void finalize();
+2. boolean equals(Object o);
+3. int hashCode();
+4. void main(String[] args);
+5. void notify();
+5. void notifyAll();
+5. String toString();
+5. void wait();
+5. void wait(long timeout);
+5. void wait(long timeout,int nanos);
+6.    getClass();
+package JavaCodes;
+
+ class inheritance extends Object{
+
+
+}
+
+public class child extends inheritance {
+
+    public static void main(String[] args) {
+        child c = new child();
+         c.hashcode();
+    }
+}
+
+Is a relationship(Inheritance):
+In java,inheritance is an Is a relationship i.e we use inheritance only
+if there exist an Is a relationship bw two classes. For eg:
+1. Car is a vehicle
+
+class Vehicle{}
+class Car extends Vehicle{}
+
+here car can inherit from vehicle and car is a subclass of vehicle.
+
+q-> Why we use inheritance?
+ans->
+1. The most important use of inheritance in java, is code re-usability.
+The code that is present in parent class be directly used by child class.
+2. Method overriding is also known as runtime polymorphism, hence we can
+achieve polymorphism in java with help of inheritance.
+
+Types of inheritance:
+1. Single inheritance->   B extends A
+In single inheritance, a single subclass extends from the single superclass.
+
+2. Multi-level inheritance-> C extends B and B extends A
+in multi-level inheritance, a subclass extend from a super class and then
+same subclass act as a superclass from the another class.
+
+3. Hierarchical inheritance-> Only A is super class and every other class
+extends A class
+in hierarchical inheritance, multiple subclass extend from a single superclass
+
+4. Multiple inheritance-> A and B class are super classes which is extended
+by class C
+class C extends A,B
+C c=new C();
+c.fun();//ambiguity
+
+5. Hybrid inheritance-> Class B and C extends class A, and class D
+extends class B and C.
+Hybrid inheritance is a combination of two or more type of inheritance.
+
+Super Keyword:
+class A{ int a=10; }
+class B extends A{
+    int a=20;
+    void foo(){
+        int a=30;
+        System.out.println(a); //30
+        System.out.println(this.a); //20
+        System.out.println(super.a); //10 //super keyword is used in three cases:
+//   Case1: Using super in case of variables we get access of super class
+//   variables.
+//   Case2: Super keyword can be used in case of methods,we can call
+//   super class methods with help of super keyword.
+//   Case3: We can call super class constructor with help of super keyword
+     }
+    public static void main(String args[]){
+        B b=new B();
+        b.foo();
+    }
+}
+
+final keyword:
+final is non-access modifier, applicable only to a variable,method or class.
+final keyword is used in diff contexts:
+1. final variable    2. final class    3. final methods
+
+final variable:
+When the variable is declared as final, its value cannot be changed and
+it has been initialized only once. This is useful for declaring constant
+or other values that should not be modified.
+
+final method:
+When the method is declared as final, it cannot be overriden by subclass,
+it is used for methods that are part of a class public api and should
+not be modified in subclasses.
+
+final class:
+When a class is declared as final, it cannot be extended by a subclass,
+this is useful for classes that are intended to be used has is and should
+not be modified or extended.
+
+
+
+
+
+
+
+
+
