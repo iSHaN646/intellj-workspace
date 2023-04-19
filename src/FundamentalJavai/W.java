@@ -15,6 +15,7 @@ public class W {
     public static void main(String[] args) {
         W w1 = c();
         System.out.println(w1);
+        System.out.println(w1);
     }
 
 }
