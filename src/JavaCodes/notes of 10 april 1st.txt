@@ -502,6 +502,51 @@ v. measuring complexity of arr with help of BigO notation.
 vi. copy arr from one arr to another
 vii. deleting elements from the arr(head,tail,mid).
 
+* Where we use matrices concept in real life
+
+MultiDimensional Array:
+can be defined in simple words as array of arrays, data in 
+MultiDimensional array are stored in tabular form. 
+
+Size of MultiDimensional array:
+The total no. of elements that can be stored in MultiDimensional 
+array can be calculated by multiplying the size of all the 
+dimensions.
+FOr eg: int[][] arr = new int[10][20];
+The arr can store a total of 10*20 i.e 200 elements.
+
+Application of MultiDimensional arrays:
+1. are used to store the data in tabular form.For eg:
+storing the rollno. and marks of students can be easily done
+by MultiDimensional arr.
+2. is to store images in 3d arrays.
+3. In dynamic programming questioning MultiDimensional arr are
+used to represent states of the problem.
+4. Apart from these also we have Application in many standard 
+algorithms, problems like matrices multiplication, graphs and
+greed search problems.
+
+StringBuffer in java:
+StringBuffer is a class in java represent a mutable sequence of char
+It provides an alternative to the immutable string class, allow
+to modify the content of string without creating new object every
+time.
+
+There are some important features and methods of StringBuffer class:
+1. StringBuffer object are mutable meaning that you can change the
+content of buffer without creating a new object.
+2. The initial capacity of StringBuffer can be specified when it 
+is created or it can be set later with the ensure capacity method.
+3*. the append method is used to add chars,strings or other objects
+to end of buffer.
+4. The insert method is used to insert chars ,strings or other 
+objects at specified pos in the buffer.
+5. the delete method is used to remove char from the buffer.
+6. the reverse method is used to reverse the order of char in buffer.
+
+
+
+
 
 
 

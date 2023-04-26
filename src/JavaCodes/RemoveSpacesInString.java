@@ -1,5 +1,7 @@
 package JavaCodes;
+
 import java.util.Scanner;
+
 public class RemoveSpacesInString {
     public static String remSpacesInStr(String str) {
         StringBuilder ans = new StringBuilder();
