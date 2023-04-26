@@ -544,6 +544,8 @@ objects at specified pos in the buffer.
 5. the delete method is used to remove char from the buffer.
 6. the reverse method is used to reverse the order of char in buffer.
 
+hi this is vscode test modification.
+
 
 
 
