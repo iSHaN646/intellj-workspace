@@ -4,25 +4,24 @@ import java.util.Scanner;
 class Bank 
 {
 	int total=100;
-	String username="pub@gmail.com";
-	int password=12345;
+	String username;
+	String password;
 
-	public int login(String username,int password){
-		if(this.username.equals(username) && this.password==password){
+	public int login(String username,String password){
+		if (this.username.equals(username) && this.password.equals(password)) {
 			return 1;
-		}else{
+		} else {
 			return 0;
 		}
 	}
 
 
-	public static void main(String[] args) 
-	{
+	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
 		System.out.print("enter username: ");
 		String username=sc.next();
 		System.out.print("enter password: ");
-		int password=sc.nextInt();
+		String password=sc.next();
 		Bank b=new Bank();
 		int result=b.login(username,password);
 		if(result==1){
@@ -31,7 +30,6 @@ class Bank
 			System.out.println("Wrong Credentials");
 		}
 
-		
-		
+
 	}
 }

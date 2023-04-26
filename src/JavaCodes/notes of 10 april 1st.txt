@@ -349,7 +349,164 @@ final class:
 When a class is declared as final, it cannot be extended by a subclass,
 this is useful for classes that are intended to be used has is and should
 not be modified or extended.
-This is good.
+
+Overriding(runtime polymorphism):
+
+class Test{
+    void fun(){
+        sout("hi");
+    }
+}
+class Real extends Test{
+    void fun(){
+        sout("bie");
+    }
+
+    psvm(String args[]){
+        Real t=new Real();
+        t.fun(); //bie
+    }
+}
+
+Overriding in java: In an object-oriented programming language, overriding
+is a feature that allows a subclass or a child class to provide a specific
+implementation of method that is only provided by one of its superclass
+or parent class. When a same method in subclass has same name,same signature
+and same return type as a method in superclass or parent class. When the
+method in subclass is said to override method in superclass,
+method overriding is one of the way by which java achieve runtime polymorphism.
+
+q-> Real r=new Real();
+    Test t=new Real();
+No doubt same class reference object can hold the object of same class,
+in java is this possible that superclass reference holds subclass object?
+Give the specific alloborate content on this concept?
+
+ans->
+
+Yes, the super class reference variable can hold the sub class object actually, it is widening in case of objects (Conversion of lower datatype to a higher datatype).
+But, using this reference you can access the members of super class only, if you try to access the sub class members a compile time error will be generated.
+
+Example
+In the following Java example, we have two classes namely Person and Student. The Person class has  one method displayPerson().
+The Student extends the person class .It has a method displayData(). In the main method, we are assigning the subclass object with the super class reference variable.
+
+class Person{
+   public void displayPerson() {
+      System.out.println("Data of the Person class: ");
+   }
+}
+public class Student extends Person {
+   public void displayStudent() {
+      System.out.println("Data of the Student class: ");
+   }
+   public static void main(String[] args) {
+      Person person = new Student();
+      person.displayPerson();
+   }
+}
+Output
+Data of the Person class:
+
+Accessing the sub class methods
+When you assign the sub class object to the super class reference variable and, using this reference if you try to access the members of the sub class a compile time error will be generated.
+Example
+In this case, if you assign a Student object to reference variable of Person class as −
+Person person = new Student();
+Using this reference, you can access the method of the super class only i.e. displayPerson(). Instead if you try to access the sub class method i.e. displayStudent() a compile time error is generated.
+Therefore, if you replace the main method of the previous program with the following a compile time error will be generated.
+
+public static void main(String[] args) {
+   Person person = new Student();
+   person.displayStudent();
+}
+Compile time error
+Student.java:33: error: cannot find symbol
+   person.dispalyStudent();
+        ^
+   symbol: method dispalyStudent()
+   location: variable person of type Person
+1 error
+
+But it can be done using typecasting:
+((Student)person).displayStudent(); //will work
+
+Java Arrays:
+
+An array is a collection of similar type of data.
+For eg:
+if we want to store the names of 100 people, then we have to create an array
+of the string type which stores 100 names.
+String[] arr = new String[100];
+Above object stores only string object.
+
+Here the above arr object cannot store more than 100 objects, if i am storing
+more elements/objects more than size of arr, it throws the exception
+ArrayIndexOutOfBoundException. The memory management of arr is a process
+of runtime so that above exception raise at the time of runtime.
+
+How to declare array in java?
+It can be a primitive datatype(int,float,char,boolean,double,byte etc..)
+int[] arr;
+or could be java objects
+String[] arr;  or Test[] arr
+
+*******   Object[] arr;         // Powerful arr
+No doubt, arr depends upon similar type of datatype, but when we are creating
+the object class arr we know object is mother class in java and object class
+reference can hold any object in java(the concept applied in inheritance
+and the concept is known as super class reference hold the subclass object
+or type-class referencing);
+So, object class arr can hold any object.
+
+How to initialize arr in java?
+int[] age = new int[5];
+age[0]=12;
+age[1]=12;
+age[2]=12;
+or
+Scanner sc=new Scanner(System.in);
+sout(enter age:);
+for(int i=0;i<5;i++){
+    age[i]=sc.nextInt();
+}
+or
+for(int i=0;i<5;i++){
+    age[i]=new Test();
+}
+or
+** Object[] age=new Object[5];
+age[0]=new Test();          // done by Class-casting
+age[1]=new Real();
+age[2]="test";
+
+How to access elements of an array in java?
+int[] age = new int[5];
+sout(age[4]);
+for(int i=0;i<5;i++){
+    sout(age[i]);
+}
+
+q-> What are the operations that can be performed on array data structure?
+ans->
+In every language,For eg: c++,java,python etc.We are using arr but data
+structure and operation we are performing on arr will be similar to all
+the languages, the operation we are performing on arr:
+1. Insertion in arr:
+If we are inserting elements or object in arr,we have some conditions->
+i. if we are inserting element at the head of arr i.e 0 indexing of arr.
+ii. inserting element in mid of arr
+iii. inserting element at tail/end of arr i.e (n-1) indexing of arr.
+iv. traversing arr
+v. measuring complexity of arr with help of BigO notation.
+vi. copy arr from one arr to another
+vii. deleting elements from the arr(head,tail,mid).
+
+
+
+
+
+
 
 
 
