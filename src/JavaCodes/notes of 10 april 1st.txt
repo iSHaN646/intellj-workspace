@@ -544,8 +544,245 @@ objects at specified pos in the buffer.
 5. the delete method is used to remove char from the buffer.
 6. the reverse method is used to reverse the order of char in buffer.
 
-hi this is vscode test modificatio.
+//////////////////////// St2 ////////////////////////////////////
 
+Note: Access modifiers table.
+
+Packages:
+(Access modifiers in java):
+
+In order to use the data from one package to another package or within the package
+we have to use the concept of access modifiers, in java we have four types of 
+access modifiers they are public,protected,private and default.
+Access modifiers make us to understand how to access the data within the package
+class to class, interface to interface and interface to class.
+In the other word,Access modifiers represent the visibililty of data and accessibility 
+of data. 
+
+1. Private access modifier is also known as native(local) access modifier.
+2. default access modifier is also known as package access modifier.
+3. protected access modifier is known as inherit access modifier.
+4. public access modifier is known as universal access modifier.
+
+Abstract Class:
+
+In java, in all versions we have Abstract classes. In Abstract classes we have 
+both implemented and unimplemented method.
+
+abstract class Real{
+    void fun(){      // implemented method
+        //logic
+    }
+
+    abstract void run();      //unimplemented method
+}
+
+**-> In abstract class, if we are not defining any access modifier in front of 
+variables or methods by default it will public.
+
+***-> We can create the object of class, but in case of abstract class programmer
+does not create object of abstract class.
+
+Cannot create the object of Real class.
+
+abstract class Real{
+    void fun(){      // implemented method
+        //logic
+    }
+
+    abstract void run();      //unimplemented method
+}
+
+Uses of abstract class:
+
+class Test extends Real{
+
+    void run(){
+        //logic
+    }
+}
+
+If i am declaring any class as a abstract class, its subclasses have the duty to 
+give the implementation of declared method in abstract class inside the subclass.
+
+Observation about Abstract class:
+// Refer to Sunstar class in abstract package
+
+1. Declaring any class as a abstract in java, concept coming from c++.
+In java, if we have any declared method we have to write abstract but in case of 
+c++ we have pure virtual functions which having null implementation(no logic but braces
+present).
+
+2. We cannot create the object of abstract class.
+
+3. Like c++, an abstract class can contain constructors in java. And a constructor
+of an abstract class is called when an instance of an inherited class is created.
+
+4. In java, we can have an abstract class without any abstract method.
+This allows us to create classes that cannot be instantiated  but can only be inherited.
+
+5. In java, abstract classes can have final method.
+
+6. Similar to the interface we can define static methods in an abstract class that can be called independently 
+without an object. 
+
+
+// Java Program to Illustrate 
+// Static Methods in Abstract
+// Class Can be called Independently
+  
+// Class 1
+// Abstract class
+abstract class Helper {
+  
+    // Abstract method
+    static void demofun()
+    {
+  
+        // Print statement
+        System.out.println("ISHAN GUPTA");
+    }
+}
+  
+// Class 2
+// Main class extending Helper class
+public class GFG extends Helper {
+  
+    // Main driver method
+    public static void main(String[] args)
+    {
+  
+        // Calling method inside main()
+        // as defined in above class
+        Helper.demofun();
+    }
+}
+Output
+ISHAN GUPTA
+
+
+//Also inner class
+7. We can use the abstract keyword for declaring top-level classes (Outer class) as well as inner classes as abstract
+
+
+import java.io.*;
+  
+abstract class B {
+    // declaring inner class as abstract with abstract
+    // method
+    abstract class C {
+        abstract void myAbstractMethod();
+    }
+}
+class D extends B {
+    class E extends C {
+        // implementing the abstract method
+        void myAbstractMethod()
+        {
+            System.out.println(
+                "Inside abstract method implementation");
+        }
+    }
+}
+  
+public class Main {
+  
+    public static void main(String args[])
+    {
+        // Instantiating the outer class
+        D outer = new D();
+  
+        // Instantiating the inner class
+        D.E inner = outer.new E();
+        inner.myAbstractMethod();
+    }
+}
+
+Q-> What do you mean by inner class?
+ans->
+The class inside the class, the concept is known as inner class.
+
+class Test{
+
+    void fun(){}
+
+    class Real{
+        void gun(){}
+    }
+}
+
+q-> how to create the object of inner classes and call the non-static inner class
+methods with suitable example?
+ans-> Refer to Innerclass.java and obs7 of abstract
+
+q-> What do you mean by mvc?   //Refer to src/Bank package
+
+Interface with java:  //Refer to src/Bank package
+
+Interface in java programming language is defined as a abstract type
+used to specify the behaviour of class. An interface in java, is A
+blueprint of a behaviour.
+
+A java interface contain static constant and abstract method.
+An interface in java is a mechanism to achieve abstraction There
+can be only abstract method/declared method/unimplemented method
+in java interface not the body of method. it is used to achieve 
+abstraction and multiple inheritance in java.
+
+Ambiguity Problem:
+
+class Real{
+    void fun(){
+        sout("i am in realclass");
+    }
+}
+
+class Test{
+    void fun(){
+        sout("i am in test class");
+    }
+}
+
+class Bank extends Real,Test{
+    Bank b=new Bank();
+    b.fun();    //ambiguity problem to call which class fun method
+}
+
+Sol-> Interface
+
+interface A{
+    void fun();
+}
+
+interface B{
+    void fun();
+}
+
+class Test implements A,B{
+    
+    //only name of method is coming int Test class.
+    //implementation is given by test class so no ambiguity
+    //problem arised in case of interface and we can achieve 
+    //multiple inheritance.
+
+    void fun(){
+        sout("hello");
+    }
+}
+
+In other words, you can say that interface have only abstract method
+and variables, it cannot have a method body. Java interface also
+represent is a relationship.
+
+Like a class, an interface can have methods and variables but the
+method declaration in interface are by default abstract(only signature
+of methods are available).
+
+The pts. to be remember in interface:
+1. Interface specify what a class must do and not how, it is A
+blueprint of behaviour.
+2. Interface do not have constructor, we cannot create object of 
+interface in java. Even jvm cannot create object of interface internally.
 
 
 
