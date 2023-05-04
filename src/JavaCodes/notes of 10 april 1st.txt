@@ -784,6 +784,8 @@ blueprint of behaviour.
 2. Interface do not have constructor, we cannot create object of 
 interface in java. Even jvm cannot create object of interface internally.
 
+end
+
 
 
 
