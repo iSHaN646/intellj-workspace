@@ -1,8 +1,10 @@
 package Bank;
 
 interface Bank {
-    
-    Employee getEmployeeDetails();
+
+      Employee getEmployeeDetails();
+
+
     // Employee getAccountDetails();
 
 }
