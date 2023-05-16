@@ -1075,3 +1075,153 @@ Note: String class  -->   Immutable object
 StringBuilder class  -->  Mutable Object but not thread safe(Not synchronized)
 StringBuffer class  -->   Mutable Object and thread safe(Synchronized)
 
+q->What is diff bw statement object and prepared Statement object?
+ans->
+Statement:
+In the last program, we have built the jdbc code with a statement interface.
+In jdbc code,statement object having a responsibility to send a request to
+database server and database server having responsibility to check the query
+syntax,every time with a statement object we are checking the query and
+executing the query.It will take max. iteration bw java program and sql server
+and holding the database connection for the long time.So, this is the biggest
+drawback while working with a statement object.
+
+Prepared Statement:
+Prepared Statement is an alternative of Statement object,having far good
+performance as compared to statement object bcoz prepared statement compiles
+the query only once through sql server,with that compiled query we can use
+compiled query max. time. No. of iteration bw java program and database
+will be less while using Prepared Statement object.In case of performance,
+prepared statement is more advanced statement object as compared to statement
+object.
+
+Throws:
+Throws is a keyword,we can use in exception handling mechanism throw does not
+handle the exception object,so we cannot say throw is exception handling
+mechanism.We use throws keyword for indication purpose,throws is mainly used
+in front of methods.
+void fun() throws SQLException{
+   //logic
+}
+In fun() method, throws indicates there may chance that this method throws
+SQLException.SQLExceptions are those exceptions which are related to database.
+So, with the try-catch mechanism we are handling the exceptions but throws
+only indicates the exception.
+So,whenever I am using throws keyword, I am not handling the exception,programmer
+just indicates the exception.Mainly programmers handle the exceptions with
+try-catch only at the calling phase of method.
+
+psvm(){
+    try{
+        fun();
+    }catch(SQLException e){
+        sout(e);
+    }
+}
+
+Throw:
+try-catch is a mechanism which handle the exception and throw keyword converts
+pre-defined exception into user-defined exception.
+Case:
+Mainly the applications we are building in real-time industry,those applications
+are used by customers,there may be possibility our customers are from IT
+or NON-IT backgrounds.For NON-IT background customers we have to convert
+out pre-defined exception into user-defined exception.Such type of process
+we can handle with throw keyword mainly we have seen in real-time projects
+customers are familier with user-defined exceptions as compared to server-side
+exceptions or localRepository-side exception.
+
+Scrollable ResultSet in java Database Connectivity:
+A scrollable ResultSet is one which allows us to retrieve the data in forward
+direction as well as backward direction but no update allowed in order to
+make the non-scrollable resultSet as scrollable resultSet, we must use the
+following create statement which is present in connection interface.
+
+Q-> Diff bw ResultSet and Scrollable ResultSet?
+ans->   Refer to JdbcExample/ScrollableResultSet
+ResultSet: we can move only in one direction(forward or up-to-down)
+Scrollable ResultSet: we can move Bidirectional(up-to-down and down-to-up)
+
+Threads in java:
+Typically we can define threads as sub-process with lightweight with the
+smallest unit of process and also have separate path of execution.These threads
+are shared memory but they act independently.Hence,if there is an execution
+in thread that do not affect the working of other threads despite them
+sharing the same memory.
+
+Multitasking:
+To help of user operating system accommodates user the privilege of multitasking
+where user can perform multiple task simultaneously on same system.This can
+be done in two ways:
+1. Process-based Multitasking(Multi-processing):
+In this type of multitasking, process are heavy-weight and each process are
+allocated by separate memory area.As the process is heavy-weight the cost of
+communication bw process is high, and it takes long time for switching bw
+processes.
+2. Thread-based Multitasking:
+As we discuss above, thread are provided with a lightweight nature and share
+the same address-space and the cost of communication bw the thread is also
+low.
+
+Q-> Why threads are used?
+ans-> We can understand why threads are being used as they have the advantage
+of being light-weight and can provide communication bw multi-threads at a
+low-cost contribution affecting multitasking within the share memory environment
+
+q-> What is segmentation in programming language?
+ans->
+Segmentation is a memory management technique that can be used to improve
+the performance of an operating system. By dividing physical memory into
+segments, the operating system can better manage its memory use, improving
+efficiency and performance.
+
+Life-cycle of Thread:
+There are diff states, Thread Transfer into during its lifetime, Let us know
+about those states.
+
+1. New State:  Thread t1 = new Thread();
+2. Active State:   t1.start();
+A thread that is new state by default get transfer to active state when it
+involves the start method.Internally, start method calls the run method.
+3. Waiting State:  t1.wait();
+With the help of wait() method,we can wait our thread by invoking sleep() method.
+sleep() method can stop execution for specific time period.
+4. Time waiting State:
+Will be done to stop the execution for some time period.
+sleep() method is invoked and after the time expire the thread starts execution
+its task.
+5. Terminated State:
+A thread will be terminated in foll. conditions:
+1. When the task finish normally.
+2. Sometime thread may terminate due to abnormal events like segmentation fault,
+exceptions etc. and such type of termination is called abnormal events.
+3. The terminate thread means it is dead and no longer available.
+
+*Note:
+q-> What is main thread?
+ans->
+We create main method in each and every java program which acts as entry pt.
+for the code to execute.Similarly, in this multi-threading concept each program
+has one main thread which was provided default by jvm.Hence,whenever
+program is created in java,jvm provides the main thread for its execution.
+
+q-1-> Explain thread life-cycle?
+q-2-> What is diff bw multi-tasking,multi-programming,multi-processing and
+multi-threading?
+
+q-> How to create thread in java?
+ans->
+We can create thread in java using two ways:
+1). extends Thread:  // Refer to Multithreading/extendThreadUse
+By extending thread class, we can run thread in java by using
+thread class which provides the constructors and methods for creating and
+performing operations on the thread which extend the thread class that can
+implement Runnable interface.
+We can use foll. constructors:
+1. Thread();
+2. Thread(Runnable r);
+3. Thread(String thread_name);
+4. Thread(Runnable r,String thread_name);
+
+2). implements Runnable:   // Refer to Multithreading/implementRunnable
+
