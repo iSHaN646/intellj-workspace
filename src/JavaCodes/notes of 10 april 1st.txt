@@ -1224,4 +1224,3 @@ We can use foll. constructors:
 4. Thread(Runnable r,String thread_name);
 
 2). implements Runnable:   // Refer to Multithreading/implementRunnable
-
