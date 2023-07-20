@@ -1,18 +1,17 @@
 // Diff bw string constant pool and heap area on 13 april
 package JavaCodes;
 
-class Str {
-    public static void main(String[] args) {
-        String k = "abc";
-        String p = "abc";
-        String l = new String("abc");
-        String o = new String("abc");
+import java.util.Scanner;
 
-        if (l.equals(o)) {
-            System.out.println("hi");
-        } else {
-            System.out.println("bye");
-        }
+class Str {
+    
+    public static void main(String[] args) {
+        
+        System.out.println("hello");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter n: ");
+        int n = sc.nextInt();
+        System.out.println("the no is: " + n);
 
     }
 }
